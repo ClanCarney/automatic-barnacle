@@ -1,0 +1,10 @@
+services:
+  solusvm-racknerd-api:
+    build: .
+    container_name: racknerd-api
+    restart: unless-stopped
+    volumes:
+      - ./tokens.txt:/app/tokens.txt:ro  # Mount tokens file as read-only
+      - ./settings.txt:/app/settings.txt:ro  # Mount settings file as read-only
+    ports:
+      - "3000:3000"
